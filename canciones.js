@@ -16,11 +16,11 @@ const crearCancion =  (titulo, artista, fecha) => {
          (cancion) => cancion.titulo == titulo
     )
     if (indice === -1) {
-        console.log('cancion creada')
+        console.log(chalk.green.inverse('cancion creada'))
         canciones.push({ titulo: titulo, artista: artista, fecha: fecha }) 
         escribirCanciones('canciones.json', canciones)
     } else {
-        console.log('Cancion ya existente')
+        console.log(chalk.red.inverse('Cancion ya existente'))
     }
 }
 
@@ -44,9 +44,9 @@ const editarArtista = (titulo, artistaNuevo)=> {
     const canciones=leerCanciones('canciones.json')
     const indice = canciones.findIndex( (cancion)=> cancion.titulo === titulo)
     if(indice===-1){
-        console.log('cancion no encontrada');
+        console.log(chalk.red.inverse('cancion no encontrada'));
     } else{
-        console.log('cancion editada')
+        console.log(chalk.green.inverse('cancion editada'))
         canciones[indice].artista=artistaNuevo
         escribirCanciones('canciones.json', canciones)
     }
@@ -56,9 +56,9 @@ const borrarCancion = (titulo)=> {
     const canciones=leerCanciones('canciones.json')
     const indice = canciones.findIndex( (cancion)=> cancion.titulo === titulo)
     if (indice === -1) {
-        console.log('cancion no encontrada')
+        console.log(chalk.red.inverse('cancion no encontrada'))
     } else {
-        console.log('cancion borrada')
+        console.log(halk.green.inverse('cancion borrada'))
         canciones.splice(indice,1)
         escribirCanciones('canciones.json', canciones)
     }
