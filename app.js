@@ -1,9 +1,8 @@
 const canciones = require('./canciones')
 const { editar, leer, crear, borrar, listar, ordenar } = require('./canciones')
 
+const yargs=require('yargs')
 
-
-//const yargs=require('yargs')
 //crear('Redneck', 'Lamb of god', 2006)
 //crear('Seven hills', 'While she sleeps', 2012)
 //crear('Can you feel my heart', 'Bring me the horizon', 2013)
@@ -18,7 +17,7 @@ borrar('Seven hills')
 
 
 
-/*yargs.command({
+yargs.command({
     command: 'add',
     describe: 'añadir cancion',
     builder: {
@@ -36,4 +35,4 @@ borrar('Seven hills')
     handler(argv) {
         canciones.crearCancion(argv.titulo, argv.cuerpo, argv.fecha)
     }
-})*/
+})
