@@ -12,7 +12,7 @@ const yargs=require('yargs')
 
 //ordenar('feecha')
 
-listar()
+//listar()
 
 //borrar('Seven hills')
 
