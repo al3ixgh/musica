@@ -1,4 +1,4 @@
-const canciones = require('./canciones')
+//const canciones = require('./canciones')
 const { editar, leer, crear, borrar, listar, ordenar } = require('./canciones')
 
 const yargs=require('yargs')
@@ -12,28 +12,33 @@ const yargs=require('yargs')
 
 //ordenar('feecha')
 
-//listar()
+listar()
 
-borrar('Seven hills')
-
-
+//borrar('Seven hills')
 
 yargs.command({
     command: 'add',
     describe: 'añadir cancion',
     builder: {
-        option: {
+        titulo: {
             describe: 'el titulo',
             demandOption: true,
             type: 'string'
         },
-        option: {
-            describe: 'el cuerpo',
+        artista: {
+            describe: 'el artista',
             demandOption: true,
             type: 'string'
+        },
+        fecha: {
+            describe: 'la fecha',
+            demandOption: true,
+            type: 'number'
         }
     },
     handler(argv) {
-        canciones.crearCancion(argv.titulo, argv.cuerpo, argv.fecha)
+        crear(argv.titulo, argv.artista, argv.fecha)
     }
 })
+
+yargs.parse()
