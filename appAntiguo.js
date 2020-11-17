@@ -1,4 +1,4 @@
-//const canciones = require('./canciones')
+/*//const canciones = require('./canciones')
 const { editar, leer, crear, borrar, listar, ordenar } = require('./canciones')
 
 const yargs=require('yargs')
@@ -42,3 +42,4 @@ yargs.command({
 })
 
 yargs.parse()
+*/
