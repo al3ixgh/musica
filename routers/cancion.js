@@ -1,13 +1,13 @@
 const express = require('express')
 const router = new express.Router()
-const Cancion = require('../models/Cancion')
+const Cancion = require('../models/cancion')
 
 router.post('/canciones', async (req, res) => {
-    const Cancion = new Cancion(req.body)
+    const cancion = new Cancion(req.body)
 
     try {
-        await Cancion.save()
-        res.status(201).send(Cancion)
+        await cancion.save()
+        res.status(201).send(cancion)
     } catch (e) {
         res.status(400).send(e)
     }
@@ -26,13 +26,13 @@ router.get('/canciones/:id', async (req, res) => {
     const _id = req.params.id
 
     try {
-        const Cancion = await Cancion.findById(_id)
+        const cancion = await Cancion.findById(_id)
 
-        if (!Cancion) {
+        if (!cancion) {
             return res.status(404).send()
         }
 
-        res.send(Cancion)
+        res.send(cancion)
     } catch (e) {
         res.status(500).send()
     }
@@ -48,13 +48,13 @@ router.patch('/canciones/:id', async (req, res) => {
     }
 
     try {
-        const Cancion = await Cancion.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+        const cancion = await Cancion.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
 
-        if (!Cancion) {
+        if (!cancion) {
             return res.status(404).send()
         }
 
-        res.send(Cancion)
+        res.send(cancion)
     } catch (e) {
         res.status(400).send(e)
     }
@@ -62,13 +62,13 @@ router.patch('/canciones/:id', async (req, res) => {
 
 router.delete('/canciones/:id', async (req, res) => {
     try {
-        const Cancion = await Cancion.findByIdAndDelete(req.params.id)
+        const cancion = await Cancion.findByIdAndDelete(req.params.id)
 
-        if (!Cancion) {
+        if (!cancion) {
             res.status(404).send()
         }
 
-        res.send(Cancion)
+        res.send(cancion)
     } catch (e) {
         res.status(500).send()
     }

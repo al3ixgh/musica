@@ -5,36 +5,22 @@ const Cancion = mongoose.model('Cancion', {
     titulo: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        lowercase:true
     },
     artista: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        lowercase:true
     },
     fecha: {
         type: Number,
         required: true,
+        trim: true
     }
 })
 
 module.exports = Cancion
 
 
-
-
-
-/*  ESTO ES LO QUE HABIA EN EL EJEMPLO DE XAVI
-const Cancion = mongoose.model('Cancion', {
-
-    description: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    completed: {
-        type: Boolean,
-        default: false
-    }
-})
-*/
